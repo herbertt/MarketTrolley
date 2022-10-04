@@ -1,23 +1,37 @@
 package com.markettrolley.application.domain;
 
 import java.io.Serializable;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Builder;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@AllArgsConstructor
+@Entity
+@Data
 @NoArgsConstructor
-@Getter
-@Setter
-
+@AllArgsConstructor
+@Builder
 public class Cliente implements Serializable {
 	
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
 	private Long Id;
 	private String nome;
 	private String email;
 	private String senha;
+	
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="cliente")
+    private List<Pedido> pedidos;
 	
 	public Long getId() {
 		return Id;

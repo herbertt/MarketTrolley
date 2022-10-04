@@ -32,14 +32,14 @@ public class PredidoController {
 	private PedidoService pedidoService;
 
 	// Save operation
-	@PostMapping("/pedido")
+	@PostMapping("/save")
 	public Pedido savePedido(@RequestBody Pedido pedido) {
 		logger.info("Save operation");
 		return pedidoService.savePedido(pedido);
 	}
 
 	// Read operation
-	@GetMapping("/pedido")
+	@GetMapping("/pedidos")
 	public List<Pedido> fetchPedidoList() {
 		logger.info("Read operation");
 		return pedidoService.fetchPedidoList();
