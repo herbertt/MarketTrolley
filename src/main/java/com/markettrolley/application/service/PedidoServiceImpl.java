@@ -44,8 +44,7 @@ public class PedidoServiceImpl implements PedidoService{
         }
 
   
-        return pedidoRepository.save(ped);
-		
+        return pedidoRepository.save(ped);		
 		
 	}
 

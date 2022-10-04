@@ -35,7 +35,6 @@ public class ItemPedido implements Serializable {
 	private Integer qtd;
 	private Double precoTotal;
 
-    
 	@ManyToOne(optional = false, fetch = FetchType.EAGER)
 	@JsonBackReference
 	private Produto produto;
