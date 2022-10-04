@@ -1,5 +1,7 @@
 package com.markettrolley.application.domain;
 
+import javax.persistence.Entity;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
