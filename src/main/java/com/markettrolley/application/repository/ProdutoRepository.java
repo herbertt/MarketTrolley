@@ -9,5 +9,4 @@ import com.markettrolley.application.domain.Produto;
 @Repository
 public interface ProdutoRepository extends CrudRepository<Produto,Long> {
 
-
 }
