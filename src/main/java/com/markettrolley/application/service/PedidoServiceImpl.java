@@ -14,25 +14,26 @@ import com.markettrolley.application.repository.PedidoRepository;
 public class PedidoServiceImpl implements PedidoService{
 	
 	@Autowired
-	private PedidoRepository jdbcRepository;
+	private PedidoRepository pedidoRepository;
+
 
 	@Override
 	public Pedido savePedido(Pedido pedido) {
 		// TODO Auto-generated method stub
-		return jdbcRepository.save(pedido);
+		return pedidoRepository.save(pedido);
 	}
 
 	@Override
 	public List<Pedido> fetchPedidoList() {
 		// TODO Auto-generated method stub
-		return (List<Pedido>) jdbcRepository.findAll();
+		return (List<Pedido>) pedidoRepository.findAll();
 	}
 
 	@Override
 	public Pedido updatePedido(Pedido pedido, Long pedidoId) {
 		// TODO Auto-generated method stub
 		
-		Pedido ped = jdbcRepository.findById(pedidoId).get();
+		Pedido ped = pedidoRepository.findById(pedidoId).get();
 		  
         if (Objects.nonNull(pedido.getData()) && !"".equalsIgnoreCase(pedido.getData().toString())) {
         	ped.setData(pedido.getData());
@@ -43,7 +44,7 @@ public class PedidoServiceImpl implements PedidoService{
         }
 
   
-        return jdbcRepository.save(ped);
+        return pedidoRepository.save(ped);
 		
 		
 	}
@@ -51,7 +52,7 @@ public class PedidoServiceImpl implements PedidoService{
 	@Override
 	public void deletePedidoById(Long pedidoId) {
 		// TODO Auto-generated method stub
-		jdbcRepository.deleteById(pedidoId);
+		pedidoRepository.deleteById(pedidoId);
 		
 	}
  

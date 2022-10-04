@@ -1,5 +1,6 @@
 package com.markettrolley.application.domain;
 
+import java.io.Serializable;
 import java.util.List;
 
 import lombok.AllArgsConstructor;
@@ -12,7 +13,7 @@ import lombok.Setter;
 @Getter
 @Setter
 
-public class ItemPedido {
+public class ItemPedido implements Serializable {
 	
 	private Double precoUnitario;
 	private Integer qtd;

@@ -1,5 +1,7 @@
 package com.markettrolley.application.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 
 import lombok.AllArgsConstructor;
@@ -12,7 +14,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-public class Produto {
+public class Produto implements Serializable {
 	
 	private Long Id;
 	private String titulo;

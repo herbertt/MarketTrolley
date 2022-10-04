@@ -1,5 +1,6 @@
 package com.markettrolley.application.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -15,7 +16,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-public class Pedido {
+public class Pedido implements Serializable {
 	
 	private Long id;
 	private Date data;
