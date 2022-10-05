@@ -62,12 +62,6 @@ public class ItemPedido implements Serializable {
 		this.precoTotal = precoTotal;
 	}
 
-	public Pedido getIdPedidos() {
-		return pedidos;
-	}
-	public void setIdPedidos(Pedido pedidos) {
-		this.pedidos = pedidos;
-	}
 	public Produto getProduto() {
 		return produto;
 	}

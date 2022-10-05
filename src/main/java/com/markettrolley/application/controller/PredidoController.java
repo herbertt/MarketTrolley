@@ -1,5 +1,6 @@
 package com.markettrolley.application.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.markettrolley.application.domain.ItemPedido;
 import com.markettrolley.application.domain.Pedido;
 import com.markettrolley.application.service.PedidoService;
 
@@ -42,7 +44,14 @@ public class PredidoController {
 	@GetMapping("/pedidos")
 	public List<Pedido> fetchPedidoList() {
 		logger.info("Read operation");
-		return pedidoService.fetchPedidoList();
+		return pedidoService.fetchPedidoList();//Util.pesistenceBagConverter(super.findAll());	
+	}
+	
+	// Read operation
+	@GetMapping("/pedidos/{id}")
+	public Pedido getById(@PathVariable("id") Long pedidoId) {
+		logger.info("Read operation");
+		return pedidoService.getById(pedidoId);	
 	}
 
 	// Update operation
@@ -51,12 +60,19 @@ public class PredidoController {
 		logger.info("Update operation");
 		return pedidoService.updatePedido(pedido, pedidoId);
 	}
+	
+	// insert operation item
+	@PutMapping("/itemPedido/{id}")
+	public Pedido inserirItemPedido(@RequestBody ItemPedido item, @PathVariable("id") Long pedidoId) {
+		logger.info("Insert operation");	
+		return pedidoService.inserirItemPedido(item, pedidoId);
+	}
 
-	// Delete operation
-	@DeleteMapping("/pedido/{id}")
-	public String deletePedidoById(@PathVariable("id") Long pedidoId) {
+	// Delete operation item
+	@DeleteMapping("/itemPedido/{id}")
+	public String deletePedidoById(@RequestBody ItemPedido item, @PathVariable("id") Long pedidoId) {
 		logger.info("Delete operation");
-		pedidoService.deletePedidoById(pedidoId);
+		pedidoService.excluirItemPedido(item, pedidoId);
 		return "Deleted Successfully";
 	}
 
